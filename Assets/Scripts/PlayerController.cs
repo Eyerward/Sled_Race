@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour
             Vector3 pos3d = hit.point - transform.position;
 
             // Make it so that its only in x and y axis
-            pos3d.y = 1; // No vertical movement
-            pos3d.z = 1; // No forward movement
+            pos3d.y = rb.transform.position.y; // No vertical movement
+            pos3d.z = rb.transform.position.z; // No forward movement
 
             GameObject.Find("Player").transform.position = pos3d;
         }
