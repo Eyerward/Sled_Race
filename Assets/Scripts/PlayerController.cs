@@ -6,7 +6,9 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float glideSpeed = 10;
+    [SerializeField] float glideSpeed = 0;
+    [SerializeField] float glideAcceleration = 0.01f;
+    [SerializeField] float glideSpeedMax;
     Rigidbody rb;
     Vector3 gliding = new Vector3(0, 0, 1);
 
@@ -28,6 +30,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // transform.Translate( gliding * glideSpeed * Time.deltaTime);
+        glideSpeed += glideAcceleration;
+
+        rb.velocity = new Vector3(0, 0, glideSpeed);
+
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
