@@ -63,6 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glideSpeed: 10
+  glideAcceleration: 0.01
+  glideSpeedMax: 0
 --- !u!1 &1130585653031939373
 GameObject:
   m_ObjectHideFlags: 0

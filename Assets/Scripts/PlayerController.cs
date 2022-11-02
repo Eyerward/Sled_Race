@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float glideSpeed = 0;
     [SerializeField] float glideAcceleration = 0.01f;
     [SerializeField] float glideSpeedMax;
+    [SerializeField] FixedJoystick joystick;
     Rigidbody rb;
     Vector3 gliding = new Vector3(0, 0, 1);
-
+    Vector3 glideDirection;
+    
     // Save the info
     RaycastHit hit;
 
@@ -32,24 +34,31 @@ public class PlayerController : MonoBehaviour
         // transform.Translate( gliding * glideSpeed * Time.deltaTime);
         glideSpeed += glideAcceleration;
 
-        rb.velocity = new Vector3(0, 0, glideSpeed);
+        if (joystick.Direction.magnitude > 0)
+        {
+            glideDirection = new Vector3(joystick.Direction.x, 0, 0).normalized;
+        }
 
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        /*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         // You successfully hi
         if (Physics.Raycast(ray, out hit))
         {
             // Find the direction to move in
-            Vector3 pos3d = hit.point - transform.position;
+            Vector3 gliding = hit.point - rb.transform.position;
+            Debug.Log(gliding.x);
 
             // Make it so that its only in x and y axis
-            pos3d.y = rb.transform.position.y; // No vertical movement
-            pos3d.z = rb.transform.position.z; // No forward movement
+            gliding.y = rb.transform.position.y; // No vertical movement
+            gliding.z = rb.transform.position.z; // No forward movement
 
-            GameObject.Find("Player").transform.position = pos3d;
-        }
+            GameObject.Find("Player").transform.position = gliding;
+        }*/
+    }
+    private void FixedUpdate()
+    {
+        rb.velocity = (glideDirection * 3) * joystick.Direction.magnitude + gliding * glideSpeed;
     }
 
-    
+
 }
