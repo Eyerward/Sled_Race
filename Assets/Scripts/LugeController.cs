@@ -7,9 +7,6 @@ public class LugeController : MonoBehaviour
 {
     [SerializeField] LayerMask runwayLayerMask;
 
-    bool willJump = true;
-    float chrono = 0.0f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +18,7 @@ public class LugeController : MonoBehaviour
         GameObject luge = GameObject.Find("Luge");
         transform.DOMoveY(luge.transform.position.y + 10, 1f, false)
             .SetEase(Ease.OutQuad);
-        transform.DORotate(new Vector3(360, luge.transform.eulerAngles.y, luge.transform.eulerAngles.z), 1.5f, RotateMode.FastBeyond360)
+        transform.DORotate(new Vector3(360, luge.transform.eulerAngles.y, luge.transform.eulerAngles.z), 1f, RotateMode.FastBeyond360)
             .SetDelay(0.1f)
             .SetEase(Ease.Linear);
         transform.DOMoveY(luge.transform.position.y, 2f, false)
@@ -32,8 +29,6 @@ public class LugeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        chrono += Time.deltaTime;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         // Save the info
@@ -50,10 +45,13 @@ public class LugeController : MonoBehaviour
             luge.transform.position = new Vector3(posX, luge.transform.position.y, luge.transform.position.z);
         }
 
-        if (chrono >= 5 && willJump)
-        {
-            Debug.Log("Jump");
-            willJump = false;
+      
+    }
+
+    private void OnTriggerEnter(Collider trigger)
+    {
+        if (trigger.gameObject.CompareTag("Bonus"))
+        { 
             Jump();
         }
     }
