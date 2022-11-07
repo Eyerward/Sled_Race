@@ -19,12 +19,13 @@ public class LugeController : MonoBehaviour
     void Jump()
     {
         GameObject luge = GameObject.Find("Luge");
-        //luge.transform.position = new Vector3(luge.transform.position.x, luge.transform.position.y, luge.transform.position.z);
-        transform.DOMove(new Vector3(luge.transform.position.x, 10, luge.transform.position.z), 3f)
+        transform.DOMoveY(luge.transform.position.y + 10, 1f, false)
             .SetEase(Ease.OutQuad);
-        transform.DORotate(360, 1f, RotateMode.Fast);
-        transform.DOMove(new Vector3(luge.transform.position.x, 0.5f, luge.transform.position.z), 3f)
-            .SetDelay(3f)
+        transform.DORotate(new Vector3(360, luge.transform.eulerAngles.y, luge.transform.eulerAngles.z), 1.5f, RotateMode.FastBeyond360)
+            .SetDelay(0.1f)
+            .SetEase(Ease.Linear);
+        transform.DOMoveY(luge.transform.position.y, 2f, false)
+            .SetDelay(1f)
             .SetEase(Ease.OutBounce);
     }
 
@@ -49,7 +50,7 @@ public class LugeController : MonoBehaviour
             luge.transform.position = new Vector3(posX, luge.transform.position.y, luge.transform.position.z);
         }
 
-        if (chrono > 10 && willJump)
+        if (chrono >= 5 && willJump)
         {
             Debug.Log("Jump");
             willJump = false;
