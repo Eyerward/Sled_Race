@@ -18,7 +18,7 @@ public class LugeController : MonoBehaviour
         GameObject luge = GameObject.Find("Luge");
         transform.DOMoveY(luge.transform.position.y + 10, 1f, false)
             .SetEase(Ease.OutQuad);
-        transform.DORotate(new Vector3(360, luge.transform.eulerAngles.y, luge.transform.eulerAngles.z), 1f, RotateMode.FastBeyond360)
+        transform.DORotate(new Vector3(360, luge.transform.eulerAngles.y, luge.transform.eulerAngles.z), 1.5f, RotateMode.FastBeyond360)
             .SetDelay(0.1f)
             .SetEase(Ease.Linear);
         transform.DOMoveY(luge.transform.position.y, 2f, false)
