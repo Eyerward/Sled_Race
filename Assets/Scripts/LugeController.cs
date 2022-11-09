@@ -20,7 +20,7 @@ public class LugeController : MonoBehaviour
             .SetEase(Ease.OutQuad);
         transform.DORotate(new Vector3(360, luge.transform.eulerAngles.y, luge.transform.eulerAngles.z), 1.5f, RotateMode.FastBeyond360)
             .SetDelay(0.1f)
-            .SetEase(Ease.Linear);
+            .SetEase(Ease.OutBack);
         transform.DOMoveY(luge.transform.position.y, 2f, false)
             .SetDelay(1f)
             .SetEase(Ease.OutBounce);
@@ -53,6 +53,9 @@ public class LugeController : MonoBehaviour
         if (trigger.gameObject.CompareTag("Bonus"))
         { 
             Jump();
+            //trigger.GetComponent<BonusAnim>().SpringFX();
         }
     }
+
+
 }
