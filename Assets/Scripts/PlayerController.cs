@@ -34,13 +34,17 @@ public class PlayerController : MonoBehaviour
     public void GetDistance()
     {
         distance = Vector3.Distance(transform.position, endLine.transform.position);
+        distance = Mathf.Floor(distance);
     }
     // Update is called once per frame
     void Update()
     {
+        // Distance entre le player et la ligne d'arrivée
         GetDistance();
         // transform.Translate( gliding * glideSpeed * Time.deltaTime);
         glideSpeed += glideAcceleration;
+
+        // Va chercher la fonction du Game Manager et transforme la distance en chaine de caractère
         FindObjectOfType<GameManager>().DistanceToString(distance);
 
 
