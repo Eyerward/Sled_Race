@@ -6,6 +6,14 @@ using UnityEngine;
 public class LugeController : MonoBehaviour
 {
     [SerializeField] LayerMask runwayLayerMask;
+    GameManager gameManager;
+    PlayerController playerController;
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        playerController = FindObjectOfType<PlayerController>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +62,11 @@ public class LugeController : MonoBehaviour
         { 
             Jump();
             //trigger.GetComponent<BonusAnim>().SpringFX();
+        }
+
+        if (trigger.gameObject.CompareTag("Enemy"))
+        {
+            FindObjectOfType<PlayerController>().Die();
         }
     }
 
