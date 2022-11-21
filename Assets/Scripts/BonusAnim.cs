@@ -17,6 +17,7 @@ public class BonusAnim : MonoBehaviour
     {
         transform.DOMoveY(transform.position.y + 2, 1f, false)
             .SetEase(Ease.OutElastic);
+        Debug.Log("#PEPOUZE");
     }
 
     // Update is called once per frame

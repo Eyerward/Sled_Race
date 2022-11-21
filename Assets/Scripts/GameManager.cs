@@ -18,8 +18,14 @@ public class GameManager : MonoBehaviour
         txtDistance.text = distance.ToString();
     }
 
+    public void DisableDistance()
+    {
+        txtDistance.gameObject.SetActive(false);
+    }
+
     public void Die()
     {
+        VivaItalia();
         Invoke("Restart", 2f);
     }
 
@@ -39,4 +45,10 @@ public class GameManager : MonoBehaviour
     {
         txtDistance.text = distance.ToString();
     }
+
+    void VivaItalia()
+    {
+        Debug.Log("Pasta !");
+    }
+
 }

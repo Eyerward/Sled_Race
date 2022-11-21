@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     GameManager gameManager;
     float distance = 0;
     bool alive = true;
+    bool debuger = true;
 
 
 
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         gameManager = FindObjectOfType<GameManager>();
     }
-    // Start is called before the first frame update
+    /**********START**********/
     void Start()
     {
    
@@ -44,11 +45,18 @@ public class PlayerController : MonoBehaviour
         FindObjectOfType<GameManager>().Die();
     }
 
-    // Update is called once per frame
+    /**********UPDATE**********/
     void Update()
     {
         // Distance entre le player et la ligne d'arrivée
         GetDistance();
+
+        // Peut servir à afficher un message au bout d'une certaine distance
+        if (distance <= 2 && debuger)
+        {
+            Debug.Log("Ping - Pong");
+            debuger = false;
+        }
 
         // Va chercher la fonction du Game Manager et transforme la distance en chaine de caractère
         FindObjectOfType<GameManager>().DistanceToString(distance);

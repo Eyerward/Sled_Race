@@ -68,6 +68,11 @@ public class LugeController : MonoBehaviour
         {
             FindObjectOfType<PlayerController>().Die();
         }
+
+        if (trigger.gameObject.CompareTag("EndLine"))
+        {
+            FindObjectOfType<GameManager>().DisableDistance();
+        }
     }
 
 
