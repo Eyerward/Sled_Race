@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float glideSpeed = 0;
-    [SerializeField] float glideAcceleration = 0.01f;
+    public float glideSpeed = 0;
+    public float glideAcceleration = 0.01f;
     [SerializeField] GameObject endLine;
     //[SerializeField] FixedJoystick joystick;
     Rigidbody rb;
@@ -41,8 +41,17 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         alive = false;
-        glideSpeed = Mathf.Lerp(glideSpeed, 0, 1);
+        glideSpeed = 0;
+        transform.DOMoveZ(transform.position.z + 5, 0.5f, false)
+            .SetEase(Ease.OutBack);
         FindObjectOfType<GameManager>().Die();
+    }
+
+    public void Win()
+    {
+        alive = false;
+        glideSpeed = 0;
+
     }
 
     /**********UPDATE**********/

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         txtDistance.text = distance.ToString();
     }
 
-    public void DisableDistance()
+    public void Win()
     {
         txtDistance.gameObject.SetActive(false);
     }

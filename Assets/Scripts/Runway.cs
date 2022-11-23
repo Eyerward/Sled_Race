@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Runway : MonoBehaviour
 {
     [SerializeField] GameObject player;
     [SerializeField] GameObject endLine;
@@ -10,25 +10,23 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.z + 20 < endLine.transform.position.z)
+        if (player.transform.position.z + 50 < endLine.transform.position.z)
         {
-            if (transform.position.z <= player.transform.position.z - 20)
+            if (transform.position.z <= player.transform.position.z - 60)
             {
-                float placement = Random.Range(-5f, 5f);
-                placement = Mathf.Floor(placement);
-                transform.position = new Vector3(placement, transform.position.y, transform.position.z + 140);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 200);
             }
             if (transform.position.z >= endLine.transform.position.z)
             {
                 Destroy(gameObject);
             }
         }
-        
+
     }
 }

@@ -3,21 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusAnim : MonoBehaviour
+public class CameraBehavior : MonoBehaviour
 {
-    //[SerializeField] GameObject platform;
-
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    public void SpringFX()
+    public void JumpEffect()
     {
-        transform.DOMoveY(transform.position.y + 2, 1f, false)
-            .SetEase(Ease.OutElastic);
-        Debug.Log("#PEPOUZE");
+        transform.DOMoveY(transform.position.y + 10, 1f).SetEase(Ease.OutSine);
+        transform.DOMoveY(transform.position.y, 2f).SetDelay(1f).SetEase(Ease.InOutBack);
     }
 
     // Update is called once per frame
