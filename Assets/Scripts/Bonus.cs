@@ -15,15 +15,6 @@ public class Bonus : MonoBehaviour
         
     }
 
-    public void SpringFX()
-    {
-        platform.transform.DOMoveY(platform.transform.position.y + 2, 0.2f, false)
-            .SetEase(Ease.OutBack);
-        platform.transform.DOMoveY(platform.transform.position.y, 0.1f, false)
-            .SetDelay(0.2f)
-            .SetEase(Ease.Linear);
-    }
-
     // Update is called once per frame
     void Update()
     {

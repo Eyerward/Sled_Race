@@ -13,9 +13,10 @@ public class CameraBehavior : MonoBehaviour
 
     public void JumpEffect()
     {
-        transform.DOMoveY(transform.position.y + 10, 1f).SetEase(Ease.OutSine);
+        transform.DOMoveY(transform.position.y + 7, 1f).SetEase(Ease.OutSine);
         transform.DOMoveY(transform.position.y, 2f).SetDelay(1f).SetEase(Ease.InOutBack);
     }
+
 
     // Update is called once per frame
     void Update()

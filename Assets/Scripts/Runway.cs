@@ -18,9 +18,9 @@ public class Runway : MonoBehaviour
     {
         if (player.transform.position.z + 50 < endLine.transform.position.z)
         {
-            if (transform.position.z <= player.transform.position.z - 60)
+            if (transform.position.z <= player.transform.position.z - 20)
             {
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 200);
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 120);
             }
             if (transform.position.z >= endLine.transform.position.z)
             {

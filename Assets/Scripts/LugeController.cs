@@ -9,14 +9,12 @@ public class LugeController : MonoBehaviour
     GameManager gameManager;
     PlayerController playerController;
     CameraBehavior cameraBehavior;
-    Bonus bonus;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
         playerController = FindObjectOfType<PlayerController>();
         cameraBehavior = FindObjectOfType<CameraBehavior>();
-        bonus = FindObjectOfType<Bonus>();
     }
 
     // Start is called before the first frame update
@@ -30,7 +28,7 @@ public class LugeController : MonoBehaviour
         GameObject luge = GameObject.Find("Luge");
         transform.DOMoveY(luge.transform.position.y + 15, 1f, false)
             .SetEase(Ease.OutQuad);
-        transform.DORotate(new Vector3(360, luge.transform.eulerAngles.y, luge.transform.eulerAngles.z), 1.5f, RotateMode.FastBeyond360)
+        transform.DORotate(new Vector3(-360, luge.transform.eulerAngles.y, luge.transform.eulerAngles.z), 1.5f, RotateMode.FastBeyond360)
             .SetDelay(0.1f)
             .SetEase(Ease.OutBack);
         transform.DOMoveY(luge.transform.position.y, 3f, false)
@@ -41,6 +39,8 @@ public class LugeController : MonoBehaviour
     {
         gameManager.Win();
         playerController.Win();
+
+        
     }
 
     // Update is called once per frame
@@ -71,7 +71,6 @@ public class LugeController : MonoBehaviour
         { 
             Jump();
             cameraBehavior.JumpEffect();
-            bonus.SpringFX();
             //trigger.GetComponent<BonusAnim>().SpringFX();
         }
 
