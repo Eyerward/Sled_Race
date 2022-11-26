@@ -9,6 +9,7 @@ public class LugeController : MonoBehaviour
     GameManager gameManager;
     PlayerController playerController;
     CameraBehavior cameraBehavior;
+    bool alive = true ;
 
     private void Awake()
     {
@@ -37,10 +38,13 @@ public class LugeController : MonoBehaviour
     }
     void Win()
     {
+        alive = false ;
         gameManager.Win();
         playerController.Win();
-
-        
+        transform.DOMove(new Vector3(0, 26, 1051), 2f, false)
+            .SetEase(Ease.OutQuad);
+        transform.DORotate(new Vector3(-37, 0, 0), 0.5f, RotateMode.Fast)
+            .SetEase(Ease.Linear);
     }
 
     // Update is called once per frame
@@ -52,7 +56,7 @@ public class LugeController : MonoBehaviour
         RaycastHit hit;
 
         // You successfully hit
-        if (Physics.Raycast(ray, out hit, 100, runwayLayerMask))
+        if (Physics.Raycast(ray, out hit, 100, runwayLayerMask) && alive)
         {
             // Find the direction to move in
             //Vector3 gliding = hit.point - rb.transform.position;
@@ -76,6 +80,7 @@ public class LugeController : MonoBehaviour
 
         if (trigger.gameObject.CompareTag("Enemy"))
         {
+            alive = false ;
             FindObjectOfType<PlayerController>().Die();
         }
 
