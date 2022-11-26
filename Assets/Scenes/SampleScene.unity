@@ -4519,6 +4519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5739926648233397928, guid: 829c2575b7d2ea54d80517cda1e85202, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5739926648233397929, guid: 829c2575b7d2ea54d80517cda1e85202, type: 3}
       propertyPath: endLine
       value: 
@@ -4575,12 +4579,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5739926648233397931, guid: 829c2575b7d2ea54d80517cda1e85202, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5739926648544628699, guid: 829c2575b7d2ea54d80517cda1e85202, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8137256591047302547, guid: 829c2575b7d2ea54d80517cda1e85202, type: 3}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909957815844783913, guid: 829c2575b7d2ea54d80517cda1e85202, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
