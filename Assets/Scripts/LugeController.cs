@@ -6,6 +6,7 @@ using UnityEngine;
 public class LugeController : MonoBehaviour
 {
     [SerializeField] LayerMask runwayLayerMask;
+    [SerializeField] GameObject player;
     GameManager gameManager;
     PlayerController playerController;
     CameraBehavior cameraBehavior;
@@ -21,7 +22,6 @@ public class LugeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     void Jump()

@@ -9,9 +9,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject luge;
     [SerializeField] GameObject endLine;
     [SerializeField] TextMesh txtDistance;
+    PlayerController playerController;
 
     float distance = 0;
-    
+
+    private void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +27,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         txtDistance.gameObject.SetActive(false);
+        Invoke("Restart", 4f);
     }
 
     public void Die()

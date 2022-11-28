@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     float distance = 0;
     bool alive = true;
     bool debuger = true;
+    public int level = 0;
 
 
 
@@ -28,8 +29,8 @@ public class PlayerController : MonoBehaviour
     /**********START**********/
     void Start()
     {
-   
-        
+        glideSpeed = 2 * level + 2;
+        Debug.Log(glideSpeed);
     }
     
     public void GetDistance()
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         alive = false;
         glideSpeed = 0;
-
+        level++;
     }
 
     /**********UPDATE**********/
