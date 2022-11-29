@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-    public float glideSpeed = 0;
-    public float glideAcceleration = 0.01f;
+    public float glideSpeed = 2;
+    public float glideAcceleration = 0.05f;
     [SerializeField] GameObject endLine;
     //[SerializeField] FixedJoystick joystick;
     Rigidbody rb;
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         // transform.Translate( gliding * glideSpeed * Time.deltaTime);
         if (alive)
         {
-            glideSpeed += glideAcceleration;
+            glideSpeed += glideAcceleration * Time.deltaTime;
         }
 
 

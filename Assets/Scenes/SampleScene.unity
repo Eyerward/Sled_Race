@@ -2438,11 +2438,11 @@ PrefabInstance:
       objectReference: {fileID: 429752730}
     - target: {fileID: 5739926648233397929, guid: 829c2575b7d2ea54d80517cda1e85202, type: 3}
       propertyPath: glideSpeed
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5739926648233397929, guid: 829c2575b7d2ea54d80517cda1e85202, type: 3}
       propertyPath: glideAcceleration
-      value: 0.002
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5739926648233397930, guid: 829c2575b7d2ea54d80517cda1e85202, type: 3}
       propertyPath: m_RootOrder

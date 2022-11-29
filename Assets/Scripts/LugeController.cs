@@ -46,6 +46,13 @@ public class LugeController : MonoBehaviour
         transform.DORotate(new Vector3(-37, 0, 0), 0.5f, RotateMode.Fast)
             .SetEase(Ease.Linear);
     }
+    void Die()
+    {
+        transform.DOMove(new Vector3(transform.position.x, 10, transform.position.z-10), 1f, false)
+            .SetEase(Ease.OutQuad);
+        transform.DORotate(new Vector3(-360, 360, 360), 2f, RotateMode.FastBeyond360)
+            .SetEase(Ease.Linear);
+    }
 
     // Update is called once per frame
     void Update()
@@ -81,6 +88,7 @@ public class LugeController : MonoBehaviour
         if (trigger.gameObject.CompareTag("Enemy"))
         {
             alive = false ;
+            Die();
             FindObjectOfType<PlayerController>().Die();
         }
 
